@@ -1,4 +1,4 @@
-# Setup
+# Setup steps
 - clone the repository
 - run `npm i` to install all the npm dependencies
 - run `npm start` to run the server
