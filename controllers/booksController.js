@@ -26,7 +26,7 @@ const createNewBook = async (req, res) => {
 const seedBooks = async (req, res) => {
   // drop all books
   await Book.deleteMany()
-  const newBooks = createThisManyFakeBooks(7)
+  const newBooks = createThisManyFakeBooks(10)
   try {
     const books = await Book.insertMany(newBooks)
     return res.status(201).send(books)
