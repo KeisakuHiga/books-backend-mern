@@ -15,8 +15,8 @@ const getOneBook = async (req, res) => {
 
 const createNewBook = async (req, res) => {
   try {
-    const { id, title, genre, author } = req.body
-    const newBook = await Book.create({ id, title, genre, author })
+    const { id, title, genre, author, price } = req.body
+    const newBook = await Book.create({ id, title, genre, author, price })
     res.status(201).send(`Successfully created book ${ newBook.title }`)
   } catch(err) {
     res.status(400).send(`There has been an error ${ err }`)
