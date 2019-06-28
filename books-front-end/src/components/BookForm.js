@@ -9,9 +9,15 @@ class BookForm extends Component {
       author: props.author || '',
       genre: props.genre || '',
       price: props.price || 0,
-      id: props.id || 0
+      id: props.id || null
     };
+    console.log('constructored from BookForm')
   }
+
+  componentDidMount() {
+    console.log('DidMount from BookForm')
+  }
+  
 
   handleClick = (e) => {
     e.preventDefault();
@@ -31,10 +37,11 @@ class BookForm extends Component {
   }
 
   render(){
+    console.log('BookForm rendered');
     console.log(this.state);
       return (
         <div className="book-form">
-          <h1>Book Form</h1>
+          {this.state.id ? <h1>Edit</h1> : <h1>Create New</h1>}
           <form>
             <label htmlFor="title">Title</label>
               <input 
@@ -68,8 +75,11 @@ class BookForm extends Component {
                 placeholder="price" 
                 value={this.state.price} 
               />
-
-              <button onClick={this.handleClick}>Save</button>
+              
+              {this.state.id ?
+              <button onClick={this.handleClick}>Update</button> :
+              <button onClick={this.handleClick}>Create New</button>}
+              
               <button onClick={this.handleCancel}>Cancel</button>
           </form>
         </div>

@@ -10,6 +10,7 @@ class App extends Component {
       adding: false,
       selectedBook: null
     };
+    console.log('constructored')
   }
 
   loadBooks = () => {
